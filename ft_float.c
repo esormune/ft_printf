@@ -6,7 +6,7 @@
 /*   By: esormune <esormune@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:26:22 by esormune          #+#    #+#             */
-/*   Updated: 2021/02/24 18:28:19 by esormune         ###   ########.fr       */
+/*   Updated: 2021/02/24 19:12:54 by esormune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,7 @@ char		*ft_float_cont(char *nb, int dot, t_flags *data)
 
 /*
 ** Returns a float as string when right aligned. Get a space here, you'll
-** need plus, space. Buf is too short. Take it into consideration
-** before coming to this function. tbd.
+** need plus, space.
 */
 
 char		*ft_return_float(int size, char *nb, t_flags *d)
@@ -127,13 +126,14 @@ char		*ft_return_float(int size, char *nb, t_flags *d)
 
 char		*ft_ret_f_cont(char *buf, t_flags *d, int neg, int size)
 {
-	if (d->plus == 0 && d->space == 0 && neg == 0 && d->zero == 1)
+	if (size >= 0 && d->plus == 0 && d->space == 0 && neg == 0 &&
+		d->zero == 1)
 		buf[size--] = '0';
-	if (d->space == 1 && neg == 0)
+	if (size >= 0 && d->space == 1 && neg == 0)
 		buf[size--] = ' ';
-	if (d->plus == 1 && neg == 0)
+	if (size >= 0 && d->plus == 1 && neg == 0)
 		buf[size--] = '+';
-	if (neg == 1)
+	if (size >= 0 && neg == 1)
 		buf[size--] = '-';
 	while (size >= 0)
 		buf[size--] = ' ';
