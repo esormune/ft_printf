@@ -6,7 +6,7 @@
 /*   By: esormune <esormune@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:24:03 by esormune          #+#    #+#             */
-/*   Updated: 2021/02/20 14:31:06 by esormune         ###   ########.fr       */
+/*   Updated: 2021/02/24 19:31:08 by esormune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_return_null_char(size_t size, char *str, t_flags *data)
 	ft_strncat(buf, str, 1);
 	i++;
 	buf[i] = '\0';
-	return (ft_strndup(buf, size));
+	return (ft_strndup(buf, i));
 }
 
 /*

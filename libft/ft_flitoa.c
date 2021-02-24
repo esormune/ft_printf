@@ -6,7 +6,7 @@
 /*   By: esormune <esormune@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 11:00:18 by esormune          #+#    #+#             */
-/*   Updated: 2021/02/24 17:43:10 by esormune         ###   ########.fr       */
+/*   Updated: 2021/02/24 20:29:22 by esormune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ char		*ft_flitoa(double nb, int prec)
 	if (neg == -1)
 		nb = nb * (-1);
 	x = ft_brounding((long double)nb, prec);
+	if (prec <=0 && (int)x == 0 && ft_is_neg(x * neg) == 1)
+		return (ft_neg_zero(prec));
 	if (prec <= 0)
 		return (ft_itoa_base(((int)x * neg), 10));
 	buf = ft_calloc((size + 3), sizeof(char));
